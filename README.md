@@ -1,10 +1,10 @@
 # Web Development Skills
 
-Repositorio de **skills** para agentes de IA orientados al desarrollo web. Estas skills proporcionan reglas, mejores practicas, scripts de validacion y plantillas para asistentes de codigo como Claude Code, Cursor, GitHub Copilot y otros.
+Repositorio de **skills** para Claude Code y otros agentes de IA, siguiendo el [protocolo oficial de Claude Code Skills](https://code.claude.com/docs/en/skills) y el estandar abierto [Agent Skills](https://agentskills.io).
 
 ## Descripcion
 
-Este repositorio contiene conjuntos de skills modulares y reutilizables que los agentes de IA pueden utilizar para:
+Este repositorio contiene skills modulares y reutilizables que los agentes de IA pueden utilizar para:
 
 - Aplicar mejores practicas automaticamente al generar codigo
 - Auditar proyectos existentes en busca de problemas
@@ -13,34 +13,26 @@ Este repositorio contiene conjuntos de skills modulares y reutilizables que los 
 
 ## Skills Disponibles
 
-### 1. Angular Best Practices 21 (`angular-best-practices-21`)
+### 1. Angular Best Practices (`angular-best-practices`)
 
-Guia completa de mejores practicas para **Angular 21.1.x** y versiones posteriores.
+Mejores practicas para **Angular 21.1.x** y versiones posteriores.
 
 | Caracteristica | Descripcion |
 |----------------|-------------|
 | **Reglas** | 27 reglas organizadas en 7 categorias |
 | **Scripts** | 3 scripts de validacion y auditoria |
 | **Plantillas** | Componentes, servicios y guards |
-| **Severidad** | Critical, Warning, Suggestion |
 
-**Categorias:**
-- Arquitectura (Standalone, Signals, Control Flow moderno)
-- Rendimiento (OnPush, Lazy Loading, Zoneless)
-- Seguridad (Sanitizacion, CSRF, CSP)
-- Accesibilidad (ARIA, Teclado, Semantica)
-- Manejo de Errores
-- Testing (Vitest)
-- Tooling (ESLint, DevTools)
+**Categorias:** Arquitectura, Rendimiento, Seguridad, Accesibilidad, Manejo de Errores, Testing, Tooling
 
 ```bash
-# Auditar un proyecto Angular
+# Auditar proyecto
 node angular-best-practices-21/scripts/audit-angular-project.js ./mi-app
 
-# Verificar un archivo especifico
+# Verificar archivo
 node angular-best-practices-21/scripts/check-best-practices.js src/app/app.component.ts
 
-# Generar reporte de cumplimiento
+# Generar reporte HTML
 node angular-best-practices-21/scripts/generate-compliance-report.js src/app --html > reporte.html
 ```
 
@@ -48,91 +40,120 @@ node angular-best-practices-21/scripts/generate-compliance-report.js src/app --h
 
 ### 2. Web Design Best Practices (`web-design-best-practices`)
 
-Guia completa de mejores practicas para **diseno y desarrollo UI/UX web**, basada en las [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines) y otras fuentes de la comunidad.
+Mejores practicas de **diseno UI/UX web**, basada en [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines).
 
 | Caracteristica | Descripcion |
 |----------------|-------------|
-| **Reglas** | 72+ reglas organizadas en 10 categorias |
+| **Reglas** | 24+ reglas organizadas en 10 categorias |
 | **Scripts** | 3 scripts de validacion y auditoria |
 | **Plantillas** | Botones, Formularios, Modales, Cards, Navegacion |
-| **Tailwind CSS** | Reglas especificas para Tailwind |
 
-**Categorias:**
-- Accesibilidad (ARIA, Labels, Teclado, Semantica, Skip Links)
-- Focus y Estados (Indicadores visibles, :focus-visible)
-- Formularios (Autocomplete, Validacion, Errores inline)
-- Animaciones (prefers-reduced-motion, transform/opacity)
-- Tipografia (Ellipsis, Numeros tabulares, Text wrap)
-- Imagenes y Media (Dimensiones, Lazy loading)
-- Rendimiento (Virtualizacion, Layout reads)
-- Layout y Responsive (Safe areas, Scrollbars)
-- Modo Oscuro y Temas (color-scheme, CSS variables)
-- Tailwind CSS (focus:ring, dark: variant)
+**Categorias:** Accesibilidad, Focus/Estados, Formularios, Animaciones, Tipografia, Imagenes, Rendimiento, Layout, Modo Oscuro, Tailwind CSS
 
 ```bash
-# Auditar un proyecto web
+# Auditar proyecto
 node web-design-best-practices/scripts/audit-ui-project.js ./mi-proyecto
 
-# Verificar un archivo especifico
+# Verificar archivo
 node web-design-best-practices/scripts/check-design-rules.js src/components/Button.tsx
 
-# Generar reporte de cumplimiento
+# Generar reporte HTML
 node web-design-best-practices/scripts/generate-ui-report.js src/ --html > reporte.html
 ```
 
 ---
 
+## Instalacion en Claude Code
+
+Las skills siguen el [protocolo oficial de Claude Code](https://code.claude.com/docs/en/skills) y pueden instalarse de tres formas:
+
+### Opcion 1: Skills Personales (todos tus proyectos)
+
+```bash
+# Copiar a ~/.claude/skills/
+cp -r angular-best-practices-21 ~/.claude/skills/angular-best-practices
+cp -r web-design-best-practices ~/.claude/skills/web-design-best-practices
+```
+
+### Opcion 2: Skills de Proyecto (solo este proyecto)
+
+```bash
+# Copiar a .claude/skills/ en tu proyecto
+mkdir -p .claude/skills
+cp -r angular-best-practices-21 .claude/skills/angular-best-practices
+cp -r web-design-best-practices .claude/skills/web-design-best-practices
+```
+
+### Opcion 3: Como Plugin
+
+Agregar este repositorio como submodulo o dependencia y referenciar las skills.
+
+## Uso
+
+Una vez instaladas, las skills se activan automaticamente cuando Claude detecta contexto relevante, o puedes invocarlas directamente:
+
+```
+/angular-best-practices
+/web-design-best-practices
+```
+
+Claude usara las instrucciones del skill y podra consultar los archivos de reglas, templates y scripts segun sea necesario.
+
 ## Estructura del Repositorio
 
 ```
 web-development-skills/
-├── README.md                           # Este archivo
-├── angular-best-practices-21/          # Skill de Angular 21+
-│   ├── SKILL.md                        # Documentacion del skill
-│   ├── package.json                    # Metadatos
-│   ├── rules/                          # 27 reglas en 7 categorias
-│   ├── scripts/                        # 3 scripts de validacion
-│   └── templates/                      # Plantillas de componentes
+├── README.md
+├── angular-best-practices-21/
+│   ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
+│   ├── package.json
+│   ├── rules/                # Reglas detalladas por categoria
+│   ├── scripts/              # Scripts de auditoria
+│   └── templates/            # Plantillas de codigo
 │
-└── web-design-best-practices/          # Skill de UI/UX Web
-    ├── SKILL.md                        # Documentacion del skill
-    ├── package.json                    # Metadatos
-    ├── rules/                          # 72+ reglas en 10 categorias
-    │   ├── 01-accesibilidad/
-    │   ├── 02-focus-estados/
-    │   ├── 03-formularios/
-    │   ├── 04-animaciones/
-    │   ├── 05-tipografia/
-    │   ├── 06-imagenes-media/
-    │   ├── 07-rendimiento/
-    │   ├── 08-layout-responsive/
-    │   ├── 09-modo-oscuro-temas/
-    │   └── 10-tailwind-css/
-    ├── scripts/                        # 3 scripts de validacion
-    └── templates/                      # 5 plantillas de componentes UI
+└── web-design-best-practices/
+    ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
+    ├── package.json
+    ├── rules/                # Reglas detalladas por categoria
+    ├── scripts/              # Scripts de auditoria
+    └── templates/            # Plantillas de componentes UI
 ```
 
-## Uso con Agentes de IA
+## Formato SKILL.md
 
-### Claude Code
+Cada skill tiene un `SKILL.md` con frontmatter YAML segun el protocolo de Claude Code:
 
-```bash
-# Agregar skills al contexto de Claude Code
-claude --skill ./web-development-skills/angular-best-practices-21
-claude --skill ./web-development-skills/web-design-best-practices
+```yaml
+---
+name: nombre-del-skill
+description: Descripcion para que Claude sepa cuando usar el skill
+allowed-tools: Read, Grep, Glob, Bash(node *)
+---
+
+# Instrucciones concisas para Claude
+
+## Reglas principales
+- Regla 1
+- Regla 2
+
+## Recursos adicionales
+- [Categoria](rules/categoria/) - Descripcion
 ```
 
-### Cursor
+### Campos del Frontmatter
 
-Las skills pueden ser agregadas como reglas personalizadas en la configuracion de Cursor.
-
-### GitHub Copilot
-
-Incluir los archivos `SKILL.md` en el contexto del proyecto para que Copilot los considere.
+| Campo | Requerido | Descripcion |
+|-------|-----------|-------------|
+| `name` | No | Nombre del skill (default: nombre del directorio) |
+| `description` | Recomendado | Cuando usar el skill |
+| `allowed-tools` | No | Herramientas permitidas sin confirmacion |
+| `disable-model-invocation` | No | Si `true`, solo el usuario puede invocarlo |
+| `user-invocable` | No | Si `false`, no aparece en menu `/` |
+| `context` | No | `fork` para ejecutar en subagente aislado |
 
 ## Formato de Reglas
 
-Cada regla sigue un formato estandar:
+Cada regla en `rules/` sigue este formato:
 
 ```markdown
 # [ID]: [Nombre de la Regla]
@@ -140,95 +161,62 @@ Cada regla sigue un formato estandar:
 ## Metadatos
 | Campo | Valor |
 |-------|-------|
-| **ID** | [Identificador unico] |
+| **ID** | Identificador unico |
 | **Severidad** | Critical / Warning / Suggestion |
-| **Categoria** | [Categoria] |
+| **Categoria** | Categoria |
 
 ## Descripcion
-[Explicacion de la regla]
+Explicacion de la regla
 
 ## Anti-Patron (Incorrecto)
-[Ejemplo de codigo a evitar]
+Ejemplo de codigo a evitar
 
 ## Patron Correcto
-[Ejemplo de codigo correcto]
+Ejemplo de codigo correcto
 
 ## Deteccion Automatica
-[Patrones regex o logica para detectar violaciones]
+Patrones regex o logica
 
 ## Referencias
-[Enlaces a documentacion oficial]
+Enlaces a documentacion
 ```
 
 ## Severidad de Reglas
 
-| Nivel | Descripcion | Accion |
-|-------|-------------|--------|
-| **Critical** | Problemas de seguridad, accesibilidad grave, o errores | Debe corregirse |
-| **Warning** | Mejores practicas no seguidas | Deberia corregirse |
-| **Suggestion** | Mejoras opcionales de calidad | Considerar correccion |
-
-## Scripts de Validacion
-
-Todos los skills incluyen tres tipos de scripts:
-
-### 1. Auditoria de Proyecto
-Escanea todo el proyecto y genera un reporte completo.
-
-```bash
-node scripts/audit-*.js ./ruta-proyecto
-```
-
-### 2. Verificacion de Archivo
-Analiza un archivo individual contra todas las reglas.
-
-```bash
-node scripts/check-*.js archivo.tsx
-```
-
-### 3. Generacion de Reportes
-Genera reportes en multiples formatos (terminal, JSON, HTML).
-
-```bash
-node scripts/generate-*-report.js ./src --json > reporte.json
-node scripts/generate-*-report.js ./src --html > reporte.html
-```
+| Nivel | Descripcion |
+|-------|-------------|
+| **Critical** | Debe corregirse (seguridad, accesibilidad grave) |
+| **Warning** | Deberia corregirse (mejores practicas) |
+| **Suggestion** | Considerar correccion (calidad) |
 
 ## Compatibilidad
 
 | Herramienta | Soporte |
 |-------------|---------|
-| Claude Code | Completo |
+| Claude Code | Completo (protocolo oficial) |
 | Cursor | Completo |
-| GitHub Copilot | Completo |
-| Codeium | Completo |
-| Otros agentes | Parcial* |
-
-*Las skills usan formato Markdown estandar que puede ser interpretado por la mayoria de agentes.
+| GitHub Copilot | Parcial |
+| Otros agentes | Parcial (estandar Agent Skills) |
 
 ## Fuentes y Creditos
 
-Este repositorio se basa en y adapta contenido de:
-
+- [Claude Code Skills Protocol](https://code.claude.com/docs/en/skills)
+- [Agent Skills Standard](https://agentskills.io)
 - [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines)
-- [VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)
-- [Vercel Labs Agent Skills](https://github.com/vercel-labs/agent-skills)
 - [Angular Official Documentation](https://angular.dev)
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 
 ## Contribuir
 
-Las contribuciones son bienvenidas. Para agregar una nueva skill o regla:
-
 1. Seguir la estructura de carpetas existente
-2. Usar el formato de reglas estandar
-3. Incluir ejemplos de codigo correctos e incorrectos
-4. Agregar patrones de deteccion automatica
-5. Actualizar el SKILL.md y package.json correspondiente
+2. Crear `SKILL.md` con frontmatter YAML valido
+3. Incluir reglas detalladas en `rules/`
+4. Agregar scripts de validacion en `scripts/`
+5. Documentar en espanol
 
 ## Licencia
 
-MIT License - Ver archivo LICENSE para mas detalles.
+MIT License
 
 ---
 
