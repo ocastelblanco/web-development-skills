@@ -2,7 +2,7 @@
 
 Repositorio de **skills** para Claude Code y otros agentes de IA, siguiendo el [protocolo oficial de Claude Code Skills](https://code.claude.com/docs/en/skills) y el estandar abierto [Agent Skills](https://agentskills.io).
 
-## Descripcion
+## Descripción
 
 Este repositorio contiene skills modulares y reutilizables que los agentes de IA pueden utilizar para:
 
@@ -17,7 +17,7 @@ Este repositorio contiene skills modulares y reutilizables que los agentes de IA
 
 Mejores practicas para **Angular 21.1.x** y versiones posteriores.
 
-| Caracteristica | Descripcion |
+| Caracteristica | Descripción |
 |----------------|-------------|
 | **Reglas** | 27 reglas organizadas en 7 categorias |
 | **Scripts** | 3 scripts de validacion y auditoria |
@@ -42,7 +42,7 @@ node angular-best-practices-21/scripts/generate-compliance-report.js src/app --h
 
 Implementación de autenticación Firebase en **Angular 21.1.x** usando AngularFire y patrones modernos.
 
-| Caracteristica | Descripcion |
+| Caracteristica | Descripción |
 |----------------|-------------|
 | **Métodos** | Email/Password, Proveedores Sociales, Teléfono, Anónimo |
 | **Referencias** | 6 guías detalladas |
@@ -62,7 +62,7 @@ Implementación de autenticación Firebase en **Angular 21.1.x** usando AngularF
 
 Mejores practicas de **diseno UI/UX web**, basada en [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines).
 
-| Caracteristica | Descripcion |
+| Caracteristica | Descripción |
 |----------------|-------------|
 | **Reglas** | 24+ reglas organizadas en 10 categorias |
 | **Scripts** | 3 scripts de validacion y auditoria |
@@ -155,7 +155,7 @@ Cada skill tiene un `SKILL.md` con frontmatter YAML segun el protocolo de Claude
 ```yaml
 ---
 name: nombre-del-skill
-description: Descripcion para que Claude sepa cuando usar el skill
+description: Descripción para que Claude sepa cuando usar el skill
 allowed-tools: Read, Grep, Glob, Bash(node *)
 ---
 
@@ -166,12 +166,12 @@ allowed-tools: Read, Grep, Glob, Bash(node *)
 - Regla 2
 
 ## Recursos adicionales
-- [Categoria](rules/categoria/) - Descripcion
+- [Categoria](rules/categoria/) - Descripción
 ```
 
 ### Campos del Frontmatter
 
-| Campo | Requerido | Descripcion |
+| Campo | Requerido | Descripción |
 |-------|-----------|-------------|
 | `name` | No | Nombre del skill (default: nombre del directorio) |
 | `description` | Recomendado | Cuando usar el skill |
@@ -194,7 +194,7 @@ Cada regla en `rules/` sigue este formato:
 | **Severidad** | Critical / Warning / Suggestion |
 | **Categoria** | Categoria |
 
-## Descripcion
+## Descripción
 Explicacion de la regla
 
 ## Anti-Patron (Incorrecto)
@@ -212,7 +212,7 @@ Enlaces a documentacion
 
 ## Severidad de Reglas
 
-| Nivel | Descripcion |
+| Nivel | Descripción |
 |-------|-------------|
 | **Critical** | Debe corregirse (seguridad, accesibilidad grave) |
 | **Warning** | Deberia corregirse (mejores practicas) |
