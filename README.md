@@ -1,29 +1,29 @@
 # Web Development Skills
 
-Repositorio de **skills** para Claude Code y otros agentes de IA, siguiendo el [protocolo oficial de Claude Code Skills](https://code.claude.com/docs/en/skills) y el estandar abierto [Agent Skills](https://agentskills.io).
+Repositorio de **skills** para Claude Code y otros agentes de IA, siguiendo el [protocolo oficial de Claude Code Skills](https://code.claude.com/docs/en/skills) y el estándar abierto [Agent Skills](https://agentskills.io).
 
 ## Descripción
 
 Este repositorio contiene skills modulares y reutilizables que los agentes de IA pueden utilizar para:
 
-- Aplicar mejores practicas automaticamente al generar codigo
+- Aplicar mejores prácticas automáticamente al generar código
 - Auditar proyectos existentes en busca de problemas
-- Proporcionar sugerencias contextuales y especificas del framework
-- Generar codigo que sigue estandares de la industria
+- Proporcionar sugerencias contextuales y específicas del framework
+- Generar código que sigue estándares de la industria
 
 ## Skills Disponibles
 
 ### 1. Angular Best Practices (`angular-best-practices`)
 
-Mejores practicas para **Angular 21.1.x** y versiones posteriores.
+Mejores prácticas para **Angular 21.1.x** y versiones posteriores.
 
 | Caracteristica | Descripción |
 |----------------|-------------|
-| **Reglas** | 27 reglas organizadas en 7 categorias |
-| **Scripts** | 3 scripts de validacion y auditoria |
+| **Reglas** | 27 reglas organizadas en 7 categorías |
+| **Scripts** | 3 scripts de validación y auditoría |
 | **Plantillas** | Componentes, servicios y guards |
 
-**Categorias:** Arquitectura, Rendimiento, Seguridad, Accesibilidad, Manejo de Errores, Testing, Tooling
+**Categorías:** Arquitectura, Rendimiento, Seguridad, Accesibilidad, Manejo de Errores, Testing, Tooling
 
 ```bash
 # Auditar proyecto
@@ -60,15 +60,15 @@ Implementación de autenticación Firebase en **Angular 21.1.x** usando AngularF
 
 ### 3. Web Design Best Practices (`web-design-best-practices`)
 
-Mejores practicas de **diseno UI/UX web**, basada en [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines).
+Mejores prácticas de **diseño UI/UX web**, basada en [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines).
 
 | Caracteristica | Descripción |
 |----------------|-------------|
-| **Reglas** | 24+ reglas organizadas en 10 categorias |
-| **Scripts** | 3 scripts de validacion y auditoria |
-| **Plantillas** | Botones, Formularios, Modales, Cards, Navegacion |
+| **Reglas** | 24+ reglas organizadas en 10 categorías |
+| **Scripts** | 3 scripts de validación y auditoría |
+| **Plantillas** | Botones, Formularios, Modales, Cards, Navegación |
 
-**Categorias:** Accesibilidad, Focus/Estados, Formularios, Animaciones, Tipografia, Imagenes, Rendimiento, Layout, Modo Oscuro, Tailwind CSS
+**Categorías:** Accesibilidad, Focus/Estados, Formularios, Animaciones, Tipografía, Imágenes, Rendimiento, Layout, Modo Oscuro, Tailwind CSS
 
 ```bash
 # Auditar proyecto
@@ -83,11 +83,11 @@ node web-design-best-practices/scripts/generate-ui-report.js src/ --html > repor
 
 ---
 
-## Instalacion en Claude Code
+## Instalación en Claude Code
 
 Las skills siguen el [protocolo oficial de Claude Code](https://code.claude.com/docs/en/skills) y pueden instalarse de tres formas:
 
-### Opcion 1: Skills Personales (todos tus proyectos)
+### Opción 1: Skills Personales (todos tus proyectos)
 
 ```bash
 # Copiar a ~/.claude/skills/
@@ -96,7 +96,7 @@ cp -r angular-firebase/angular-firebase-authentication ~/.claude/skills/angular-
 cp -r web-design-best-practices ~/.claude/skills/web-design-best-practices
 ```
 
-### Opcion 2: Skills de Proyecto (solo este proyecto)
+### Opción 2: Skills de Proyecto (solo este proyecto)
 
 ```bash
 # Copiar a .claude/skills/ en tu proyecto
@@ -112,7 +112,7 @@ Agregar este repositorio como submodulo o dependencia y referenciar las skills.
 
 ## Uso
 
-Una vez instaladas, las skills se activan automaticamente cuando Claude detecta contexto relevante, o puedes invocarlas directamente:
+Una vez instaladas, las skills se activan automáticamente cuando Claude detecta contexto relevante, o puedes invocarlas directamente:
 
 ```
 /angular-best-practices
@@ -120,7 +120,7 @@ Una vez instaladas, las skills se activan automaticamente cuando Claude detecta 
 /web-design-best-practices
 ```
 
-Claude usara las instrucciones del skill y podra consultar los archivos de referencias, templates y scripts segun sea necesario.
+Claude usará las instrucciones del skill y podrá consultar los archivos de referencias, templates y scripts según sea necesario.
 
 ## Estructura del Repositorio
 
@@ -130,32 +130,32 @@ web-development-skills/
 ├── angular-best-practices-21/
 │   ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
 │   ├── package.json
-│   ├── rules/                # Reglas detalladas por categoria
-│   ├── scripts/              # Scripts de auditoria
-│   └── templates/            # Plantillas de codigo
+│   ├── rules/                # Reglas detalladas por categoría
+│   ├── scripts/              # Scripts de auditoría
+│   └── templates/            # Plantillas de código
 │
 ├── angular-firebase/
 │   └── angular-firebase-authentication/
 │       ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
-│       ├── references/           # Guias detalladas por metodo de auth
+│       ├── references/           # Guías detalladas por método de auth
 │       └── templates/            # Plantillas de servicios y componentes
 │
 └── web-design-best-practices/
     ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
     ├── package.json
-    ├── rules/                # Reglas detalladas por categoria
-    ├── scripts/              # Scripts de auditoria
+    ├── rules/                # Reglas detalladas por categoría
+    ├── scripts/              # Scripts de auditoría
     └── templates/            # Plantillas de componentes UI
 ```
 
 ## Formato SKILL.md
 
-Cada skill tiene un `SKILL.md` con frontmatter YAML segun el protocolo de Claude Code:
+Cada skill tiene un `SKILL.md` con frontmatter YAML según el protocolo de Claude Code:
 
 ```yaml
 ---
 name: nombre-del-skill
-description: Descripción para que Claude sepa cuando usar el skill
+description: Descripción para que Claude sepa cuándo usar el skill
 allowed-tools: Read, Grep, Glob, Bash(node *)
 ---
 
@@ -166,7 +166,7 @@ allowed-tools: Read, Grep, Glob, Bash(node *)
 - Regla 2
 
 ## Recursos adicionales
-- [Categoria](rules/categoria/) - Descripción
+- [Categoría](rules/categoria/) - Descripción
 ```
 
 ### Campos del Frontmatter
@@ -174,10 +174,10 @@ allowed-tools: Read, Grep, Glob, Bash(node *)
 | Campo | Requerido | Descripción |
 |-------|-----------|-------------|
 | `name` | No | Nombre del skill (default: nombre del directorio) |
-| `description` | Recomendado | Cuando usar el skill |
-| `allowed-tools` | No | Herramientas permitidas sin confirmacion |
+| `description` | Recomendado | Cuándo usar el skill |
+| `allowed-tools` | No | Herramientas permitidas sin confirmación |
 | `disable-model-invocation` | No | Si `true`, solo el usuario puede invocarlo |
-| `user-invocable` | No | Si `false`, no aparece en menu `/` |
+| `user-invocable` | No | Si `false`, no aparece en menú `/` |
 | `context` | No | `fork` para ejecutar en subagente aislado |
 
 ## Formato de Reglas
@@ -190,24 +190,24 @@ Cada regla en `rules/` sigue este formato:
 ## Metadatos
 | Campo | Valor |
 |-------|-------|
-| **ID** | Identificador unico |
+| **ID** | Identificador único |
 | **Severidad** | Critical / Warning / Suggestion |
-| **Categoria** | Categoria |
+| **Categoría** | Categoría |
 
 ## Descripción
-Explicacion de la regla
+Explicación de la regla
 
-## Anti-Patron (Incorrecto)
-Ejemplo de codigo a evitar
+## Anti-Patrón (Incorrecto)
+Ejemplo de código a evitar
 
-## Patron Correcto
-Ejemplo de codigo correcto
+## Patrón Correcto
+Ejemplo de código correcto
 
-## Deteccion Automatica
-Patrones regex o logica
+## Detección Automática
+Patrones regex o lógica
 
 ## Referencias
-Enlaces a documentacion
+Enlaces a documentación
 ```
 
 ## Severidad de Reglas
@@ -215,8 +215,8 @@ Enlaces a documentacion
 | Nivel | Descripción |
 |-------|-------------|
 | **Critical** | Debe corregirse (seguridad, accesibilidad grave) |
-| **Warning** | Deberia corregirse (mejores practicas) |
-| **Suggestion** | Considerar correccion (calidad) |
+| **Warning** | Debería corregirse (mejores prácticas) |
+| **Suggestion** | Considerar corrección (calidad) |
 
 ## Compatibilidad
 
@@ -227,7 +227,7 @@ Enlaces a documentacion
 | GitHub Copilot | Parcial |
 | Otros agentes | Parcial (estandar Agent Skills) |
 
-## Fuentes y Creditos
+## Fuentes y Créditos
 
 - [Claude Code Skills Protocol](https://code.claude.com/docs/en/skills)
 - [Agent Skills Standard](https://agentskills.io)
@@ -238,10 +238,10 @@ Enlaces a documentacion
 ## Contribuir
 
 1. Seguir la estructura de carpetas existente
-2. Crear `SKILL.md` con frontmatter YAML valido
+2. Crear `SKILL.md` con frontmatter YAML válido
 3. Incluir reglas detalladas en `rules/`
-4. Agregar scripts de validacion en `scripts/`
-5. Documentar en espanol
+4. Agregar scripts de validación en `scripts/`
+5. Documentar en español
 
 ## Licencia
 
