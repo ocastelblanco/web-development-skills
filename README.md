@@ -38,7 +38,27 @@ node angular-best-practices-21/scripts/generate-compliance-report.js src/app --h
 
 ---
 
-### 2. Web Design Best Practices (`web-design-best-practices`)
+### 2. Angular Firebase Authentication (`angular-firebase`)
+
+Implementación de autenticación Firebase en **Angular 21.1.x** usando AngularFire y patrones modernos.
+
+| Caracteristica | Descripcion |
+|----------------|-------------|
+| **Métodos** | Email/Password, Proveedores Sociales, Teléfono, Anónimo |
+| **Referencias** | 6 guías detalladas |
+| **Plantillas** | Servicios, componentes login/registro, guards |
+
+**Métodos soportados:** Email/Password, Google, Facebook, Twitter, Autenticación por teléfono, Login anónimo
+
+```bash
+# Usar templates para crear servicio de auth
+# Usar guards para proteger rutas
+# Usar patrones reactivos con Signals
+```
+
+---
+
+### 3. Web Design Best Practices (`web-design-best-practices`)
 
 Mejores practicas de **diseno UI/UX web**, basada en [Vercel Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines).
 
@@ -72,6 +92,7 @@ Las skills siguen el [protocolo oficial de Claude Code](https://code.claude.com/
 ```bash
 # Copiar a ~/.claude/skills/
 cp -r angular-best-practices-21 ~/.claude/skills/angular-best-practices
+cp -r angular-firebase/angular-firebase-authentication ~/.claude/skills/angular-firebase-authentication
 cp -r web-design-best-practices ~/.claude/skills/web-design-best-practices
 ```
 
@@ -81,6 +102,7 @@ cp -r web-design-best-practices ~/.claude/skills/web-design-best-practices
 # Copiar a .claude/skills/ en tu proyecto
 mkdir -p .claude/skills
 cp -r angular-best-practices-21 .claude/skills/angular-best-practices
+cp -r angular-firebase/angular-firebase-authentication .claude/skills/angular-firebase-authentication
 cp -r web-design-best-practices .claude/skills/web-design-best-practices
 ```
 
@@ -94,10 +116,11 @@ Una vez instaladas, las skills se activan automaticamente cuando Claude detecta 
 
 ```
 /angular-best-practices
+/angular-firebase-authentication
 /web-design-best-practices
 ```
 
-Claude usara las instrucciones del skill y podra consultar los archivos de reglas, templates y scripts segun sea necesario.
+Claude usara las instrucciones del skill y podra consultar los archivos de referencias, templates y scripts segun sea necesario.
 
 ## Estructura del Repositorio
 
@@ -110,6 +133,12 @@ web-development-skills/
 │   ├── rules/                # Reglas detalladas por categoria
 │   ├── scripts/              # Scripts de auditoria
 │   └── templates/            # Plantillas de codigo
+│
+├── angular-firebase/
+│   └── angular-firebase-authentication/
+│       ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
+│       ├── references/           # Guias detalladas por metodo de auth
+│       └── templates/            # Plantillas de servicios y componentes
 │
 └── web-design-best-practices/
     ├── SKILL.md              # Instrucciones principales (frontmatter YAML)
